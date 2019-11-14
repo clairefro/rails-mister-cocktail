@@ -26,3 +26,23 @@ ingredients.each do |i|
 end
 
 puts "done!"
+
+########################
+# COCKTAILS SEED
+########################
+
+Cocktail.destroy_all
+puts "building cocktails...."
+
+Cocktail.create({ name: "Orange Julip" })
+Cocktail.create({ name: "Gin Tonic" })
+Cocktail.create({ name: "Margarita" })
+Cocktail.create({ name: "Water" })
+
+puts "cocktails made 🍸"
+
+########################
+# DOSES SEED
+#######################
+
+

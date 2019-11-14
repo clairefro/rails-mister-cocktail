@@ -1,0 +1,15 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon à Cocktail</h1>
+    <p>Change your life, get buzzed.</p>
+    <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+  </div>
+</div>
+
+<div class="grid-container">
+  <% @cocktails.each do |c| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1461823385004-d7660947a7c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+    <%= link_to c.name, cocktail_path(c) %>
+  </div>
+  <% end %>
+</div>
