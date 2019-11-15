@@ -11,7 +11,7 @@ class DosesController < ApplicationController
     @dose.cocktail = @cocktail
     @dose.save
 
-    redirect_to cocktails_path
+    redirect_to cocktails_path(@cocktail)
   end
 
   private

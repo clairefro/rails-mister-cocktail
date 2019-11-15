@@ -1,11 +1,22 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
 
-<h3>Ingredients</h3>
-<ul>
-  <% @doses.each do |d|  %>
-     <li><%= Ingredient.find(d.ingredient_id).name %> - <%= d.description %></li>
+  <h3>Ingredients</h3>
+  <ul>
+    <% @doses.each do |d|  %>
+       <li><%= Ingredient.find(d.ingredient_id).name %> - <%= d.description %> <i class="far fa-trash-alt"></i></li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add ingredient info', new_cocktail_dose_path(@cocktail.id) %>
+  <%= link_to 'Back to cocktail list', cocktails_path %>
+
+
+  <!-- display uplouaded or deafult image -->
+  <% if @cocktail.photo.present? %>
+    <%=  cl_image_tag(@cocktail.photo, width:500, crop: :fill) %>
+  <% else %>
+    <%=  image_tag "cocktail-glass.jpg", width:500, crop: :fill %>
   <% end %>
-</ul>
+</div>
 
-<%= link_to 'Add ingredient info', new_cocktail_dose_path(@cocktail.id) %>
-<%= link_to 'Back to cocktail list', cocktails_path %>

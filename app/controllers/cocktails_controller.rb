@@ -8,6 +8,11 @@ class CocktailsController < ApplicationController
   # GET "cocktails/:id"
   def show
     @doses = @cocktail.doses
+
+  # set photo to uploaded or default img
+   @photo = "cocktail-glass.jpg" unless @cocktail.photo
+
+
   end
 
   # GET "cocktails/new"
@@ -30,6 +35,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
